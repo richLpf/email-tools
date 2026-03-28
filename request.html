@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Submit a tool suggestion or subscribe to MailTools updates." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>MailTools — Request</title>
+  </head>
+  <body class="min-h-screen bg-slate-50 font-sans text-slate-900 antialiased">
+    <header class="border-b border-slate-100 bg-white">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <a href="/" class="flex items-center gap-2.5" aria-label="MailTools home">
+          <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-white shadow-sm">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
+            </svg>
+          </span>
+          <span class="text-xl font-bold tracking-tight text-blue-600">MailTools</span>
+        </a>
+        <nav class="flex items-center gap-6 text-sm font-medium text-slate-700" aria-label="Main">
+          <a id="nav-tools" href="/" class="transition hover:text-blue-600">Tools</a>
+          <a id="nav-request" href="/request.html" class="font-semibold text-blue-600">Request Tool</a>
+          <button
+            type="button"
+            id="nav-lang-toggle"
+            class="flex items-center gap-1.5 rounded-lg px-2 py-1 text-slate-600 transition hover:bg-slate-50 hover:text-blue-600"
+          >
+            <span aria-hidden="true">🌐</span> 中文
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-2xl px-4 py-10 sm:px-6 lg:py-16">
+      <div class="overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-lg">
+        <div
+          class="bg-gradient-to-r from-blue-600 to-indigo-700 px-6 py-10 text-center sm:px-10"
+        >
+          <h1 id="request-title" class="text-2xl font-bold text-white sm:text-3xl">
+            Submit a Tool or Subscribe
+          </h1>
+          <p id="request-subtitle" class="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-blue-100 sm:text-base">
+            Can't find what you need? Tell us what tool you are looking for, or subscribe to get notified when we add new tools.
+          </p>
+        </div>
+
+        <div class="p-6 sm:p-10">
+          <div class="flex flex-col gap-3 sm:flex-row">
+            <button
+              type="button"
+              id="tab-suggest"
+              class="flex-1 rounded-xl border-2 border-blue-600 bg-white px-4 py-3 text-center text-sm font-semibold text-blue-600 sm:text-base"
+            >
+              Submit a Suggestion
+            </button>
+            <button type="button" id="tab-subscribe" class="flex-1 rounded-xl bg-slate-100 px-4 py-3 text-center text-sm font-medium text-slate-500 sm:text-base">
+              Subscribe to Updates
+            </button>
+          </div>
+
+          <form class="mt-8 space-y-6" onsubmit="return false;">
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              <div>
+                <label id="label-name" for="input-name" class="mb-2 block text-sm font-medium text-slate-700"
+                  >Name</label
+                >
+                <input
+                  id="input-name"
+                  name="name"
+                  type="text"
+                  autocomplete="name"
+                  class="w-full rounded-lg border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+                  placeholder="John Doe"
+                />
+              </div>
+              <div>
+                <label id="label-email" for="input-email" class="mb-2 block text-sm font-medium text-slate-700"
+                  >Email Address</label
+                >
+                <div class="flex rounded-lg border border-slate-200 focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-500/20">
+                  <input
+                    id="input-email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    class="min-w-0 flex-1 rounded-l-lg border-0 bg-transparent px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none"
+                    placeholder="john@example.com"
+                  />
+                  <button
+                    type="button"
+                    id="btn-send-code"
+                    class="shrink-0 rounded-r-lg bg-sky-100 px-3 text-xs font-semibold text-blue-700 transition hover:bg-sky-200 sm:px-4 sm:text-sm"
+                  >
+                    Send Code
+                  </button>
+                </div>
+                <p id="code-toast" class="mt-2 hidden text-xs font-medium text-emerald-600" role="status"></p>
+              </div>
+            </div>
+
+            <div>
+              <label id="label-extra" for="input-extra" class="mb-2 block text-sm font-medium text-slate-700"
+                >Tool Name / Description</label
+              >
+              <textarea
+                id="input-extra"
+                name="extra"
+                rows="5"
+                class="w-full resize-y rounded-lg border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+                placeholder="Describe the tool you need..."
+              ></textarea>
+            </div>
+
+            <button
+              type="button"
+              id="form-submit"
+              disabled
+              class="mt-8 flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-xl bg-slate-200 px-6 py-3.5 text-base font-semibold text-slate-500"
+            >
+              <span>Submit</span>
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+              </svg>
+            </button>
+            <p id="verify-hint" class="text-center text-xs text-slate-500">
+              * Please verify your email to enable submission
+            </p>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer class="py-8 text-center text-sm text-slate-500">
+      <p>&copy; <span id="year"></span> MailTools</p>
+    </footer>
+
+    <script type="module" src="/src/request-main.js"></script>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
