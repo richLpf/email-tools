@@ -51,6 +51,14 @@ pnpm install
 
 部署时将 `dist/` 整站托管到静态服务器（Nginx、OSS、Netlify 等）即可。
 
+### Vercel Web Analytics
+
+项目依赖 `@vercel/analytics`，在 `src/js/analytics.js` 中调用 `inject()`，并在 `src/main.js` 与 `src/request-main.js` 入口初始化（多页应用每个入口各执行一次）。
+
+- 部署到 **Vercel** 时，在控制台为该仓库项目打开 **Analytics → Web Analytics**。
+- 官方文档：[Quickstart](https://vercel.com/docs/analytics/quickstart)、[Package](https://vercel.com/docs/analytics/package)。
+- 说明：文档中 Next.js 示例为 `import { Analytics } from "@vercel/analytics/next"`；**非 Next 项目**应使用本仓库的 `inject()` 方式，二者对应同一套分析能力。
+
 ---
 
 ## 录入新工具

@@ -31,6 +31,7 @@
 - **纯前端静态站点**：工具数据与文案写在仓库内，无需数据库即可展示与构建。
 - **构建栈**：Vite、Tailwind CSS、原生 JavaScript；包管理推荐使用 **pnpm**。
 - **扩展维护**：新增工具、本地启动与构建命令见 **[GUIDE.md](./GUIDE.md)**。
+- **访问分析**：已接入 [Vercel Web Analytics](https://vercel.com/docs/analytics)。本站为 Vite 多页应用，使用官方包中的 `inject()`（与 Next.js 里的 `<Analytics />` 等价，见 [Package 文档](https://vercel.com/docs/analytics/package)）。部署在 **Vercel** 时，在项目控制台 **Analytics** 中启用 Web Analytics 后即可查看流量；本地开发通常不产生生产上报。
 
 ---
 
