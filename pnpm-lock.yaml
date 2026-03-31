@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@vercel/analytics':
+        specifier: ^1.4.1
+        version: 1.6.1
     devDependencies:
       autoprefixer:
         specifier: ^10.4.20
@@ -317,6 +321,32 @@ packages:
 
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
+
+  '@vercel/analytics@1.6.1':
+    resolution: {integrity: sha512-oH9He/bEM+6oKlv3chWuOOcp8Y6fo6/PSro8hEkgCW3pu9/OiCXiUpRUogDh3Fs3LH2sosDrx8CxeOLBEE+afg==}
+    peerDependencies:
+      '@remix-run/react': ^2
+      '@sveltejs/kit': ^1 || ^2
+      next: '>= 13'
+      react: ^18 || ^19 || ^19.0.0-rc
+      svelte: '>= 4'
+      vue: ^3
+      vue-router: ^4
+    peerDependenciesMeta:
+      '@remix-run/react':
+        optional: true
+      '@sveltejs/kit':
+        optional: true
+      next:
+        optional: true
+      react:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
+      vue-router:
+        optional: true
 
   any-promise@1.3.0:
     resolution: {integrity: sha512-7UvmKalWRt1wgjL1RrGxoSJW/0QZFIegpeGvZG9kjp8vrRu55XTHbwnqq2GpXm9uLbcuhxm3IqX9OB4MZR1b2A==}
@@ -843,6 +873,8 @@ snapshots:
     optional: true
 
   '@types/estree@1.0.8': {}
+
+  '@vercel/analytics@1.6.1': {}
 
   any-promise@1.3.0: {}
 

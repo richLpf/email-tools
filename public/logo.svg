@@ -1,0 +1,9 @@
+<svg width="220" height="48" viewBox="0 0 220 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">MailTools Logo</title>
+  <desc id="logoDesc">Envelope icon and MailTools wordmark.</desc>
+  <rect x="2" y="2" width="44" height="44" rx="10" fill="#2563EB"/>
+  <path d="M12 16C12 14.8954 12.8954 14 14 14H34C35.1046 14 36 14.8954 36 16V32C36 33.1046 35.1046 34 34 34H14C12.8954 34 12 33.1046 12 32V16Z" fill="white"/>
+  <path d="M12 17L24 25L36 17" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M30 12L31 14L33 15L31 16L30 18L29 16L27 15L29 14L30 12Z" fill="white"/>
+  <text x="58" y="31" fill="#0F172A" font-size="24" font-family="Inter, Arial, sans-serif" font-weight="700" letter-spacing="-0.3">MailTools</text>
+</svg>
