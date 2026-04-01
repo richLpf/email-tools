@@ -22,6 +22,8 @@ const categoryKeys = [
   'warmup',
   'design',
   'deliverability',
+  'disposable',
+  'reputation',
 ];
 
 function pricingLabel(p) {
@@ -39,7 +41,14 @@ function filteredTools() {
     if (!q) return true;
     const name = tool.name.toLowerCase();
     const desc = t(tool.descriptionKey, lang).toLowerCase();
-    return name.includes(q) || desc.includes(q);
+    const intro = t(tool.introKey, lang).toLowerCase();
+    const applicable = t(tool.applicableKey, lang).toLowerCase();
+    return (
+      name.includes(q) ||
+      desc.includes(q) ||
+      intro.includes(q) ||
+      applicable.includes(q)
+    );
   });
 }
 
@@ -73,6 +82,8 @@ function renderFilters() {
     search.placeholder = t('search.placeholder', lang);
     search.value = searchQuery;
   }
+  const heading = document.getElementById('categories-heading');
+  if (heading) heading.textContent = t('layout.categories', lang);
   const container = document.getElementById('category-filters');
   if (!container) return;
   container.innerHTML = '';
@@ -80,10 +91,10 @@ function renderFilters() {
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className =
-      'shrink-0 rounded-full px-4 py-1.5 text-sm font-medium transition ' +
+      'w-full rounded-lg px-3 py-2.5 text-left text-sm font-medium transition ' +
       (activeCategory === key
-        ? 'bg-blue-600 text-white shadow-sm'
-        : 'bg-slate-100 text-slate-700 hover:bg-slate-200');
+        ? 'bg-blue-50 text-blue-800 ring-1 ring-inset ring-blue-200/80'
+        : 'text-slate-700 hover:bg-slate-100');
     btn.textContent = t(`filter.${key}`, lang);
     btn.dataset.category = key;
     btn.addEventListener('click', () => {
@@ -200,15 +211,25 @@ function renderDrawer() {
   head.appendChild(badge);
   head.appendChild(h2);
 
-  const purposeBlock = document.createElement('div');
-  const hPurpose = document.createElement('h3');
-  hPurpose.className = 'text-sm font-semibold text-slate-800';
-  hPurpose.textContent = t('drawer.purpose', lang);
-  const pPurpose = document.createElement('p');
-  pPurpose.className = 'mt-1 text-sm leading-relaxed text-slate-600';
-  pPurpose.textContent = t(tool.descriptionKey, lang);
-  purposeBlock.appendChild(hPurpose);
-  purposeBlock.appendChild(pPurpose);
+  const introBlock = document.createElement('div');
+  const hIntro = document.createElement('h3');
+  hIntro.className = 'text-sm font-semibold text-slate-800';
+  hIntro.textContent = t('drawer.intro', lang);
+  const pIntro = document.createElement('p');
+  pIntro.className = 'mt-1 text-sm leading-relaxed text-slate-600';
+  pIntro.textContent = t(tool.introKey, lang);
+  introBlock.appendChild(hIntro);
+  introBlock.appendChild(pIntro);
+
+  const applicableBlock = document.createElement('div');
+  const hApplicable = document.createElement('h3');
+  hApplicable.className = 'text-sm font-semibold text-slate-800';
+  hApplicable.textContent = t('drawer.applicable', lang);
+  const pApplicable = document.createElement('p');
+  pApplicable.className = 'mt-1 text-sm leading-relaxed text-slate-600';
+  pApplicable.textContent = t(tool.applicableKey, lang);
+  applicableBlock.appendChild(hApplicable);
+  applicableBlock.appendChild(pApplicable);
 
   const linkBlock = document.createElement('div');
   const hLink = document.createElement('h3');
@@ -257,7 +278,8 @@ function renderDrawer() {
   usageBlock.appendChild(pUsage);
 
   wrap.appendChild(head);
-  wrap.appendChild(purposeBlock);
+  wrap.appendChild(introBlock);
+  wrap.appendChild(applicableBlock);
   wrap.appendChild(linkBlock);
   wrap.appendChild(grid);
   wrap.appendChild(usageBlock);

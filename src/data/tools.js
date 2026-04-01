@@ -1,7 +1,8 @@
 /**
  * 工具白名单（仅展示以下类别）。
- * category 取值：deliverability | design | warmup | blacklist | dns
+ * category 取值：deliverability | design | warmup | blacklist | dns | disposable | reputation
  * pricing 取值：free | paid | freemium
+ * introKey / applicableKey：用途介绍、适用情况（详情抽屉）
  */
 export const tools = [
   {
@@ -9,6 +10,8 @@ export const tools = [
     name: 'Mail-Tester',
     category: 'deliverability',
     descriptionKey: 'tools.mailtester.desc',
+    introKey: 'tools.mailtester.intro',
+    applicableKey: 'tools.mailtester.applicable',
     link: 'https://www.mail-tester.com',
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80',
     pricing: 'freemium',
@@ -19,6 +22,8 @@ export const tools = [
     name: 'Stripo',
     category: 'design',
     descriptionKey: 'tools.stripo.desc',
+    introKey: 'tools.stripo.intro',
+    applicableKey: 'tools.stripo.applicable',
     link: 'https://stripo.email',
     image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80',
     pricing: 'freemium',
@@ -29,6 +34,8 @@ export const tools = [
     name: 'Lemwarm',
     category: 'warmup',
     descriptionKey: 'tools.lemwarm.desc',
+    introKey: 'tools.lemwarm.intro',
+    applicableKey: 'tools.lemwarm.applicable',
     link: 'https://www.lemlist.com/warm-up',
     image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80',
     pricing: 'paid',
@@ -39,6 +46,8 @@ export const tools = [
     name: 'MXToolbox Blacklist Check',
     category: 'blacklist',
     descriptionKey: 'tools.mxtoolboxBlacklist.desc',
+    introKey: 'tools.mxtoolboxBlacklist.intro',
+    applicableKey: 'tools.mxtoolboxBlacklist.applicable',
     link: 'https://mxtoolbox.com/blacklists.aspx',
     image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80',
     pricing: 'free',
@@ -49,9 +58,35 @@ export const tools = [
     name: 'DNSChecker',
     category: 'dns',
     descriptionKey: 'tools.dnschecker.desc',
+    introKey: 'tools.dnschecker.intro',
+    applicableKey: 'tools.dnschecker.applicable',
     link: 'https://dnschecker.org/all-dns-records-of-domain.php',
     image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80',
     pricing: 'free',
     usageInstructionsKey: 'tools.dnschecker.usage',
+  },
+  {
+    id: 'temp-mail',
+    name: 'Temp Mail',
+    category: 'disposable',
+    descriptionKey: 'tools.tempMail.desc',
+    introKey: 'tools.tempMail.intro',
+    applicableKey: 'tools.tempMail.applicable',
+    link: 'https://temp-mail.org/',
+    image: 'https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=800&q=80',
+    pricing: 'free',
+    usageInstructionsKey: 'tools.tempMail.usage',
+  },
+  {
+    id: 'google-postmaster',
+    name: 'Google Postmaster Tools',
+    category: 'reputation',
+    descriptionKey: 'tools.googlePostmaster.desc',
+    introKey: 'tools.googlePostmaster.intro',
+    applicableKey: 'tools.googlePostmaster.applicable',
+    link: 'https://postmaster.google.com/',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
+    pricing: 'free',
+    usageInstructionsKey: 'tools.googlePostmaster.usage',
   },
 ];
